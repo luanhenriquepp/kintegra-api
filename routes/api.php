@@ -20,4 +20,5 @@ Route::group(['middleware' => ['jwt.auth']], function() {
     Route::get('payment-category', 'PaymentCategoryController@index');
     Route::get('payment-code', 'PaymentCodeController@index');
     Route::get('payment', 'PaymentController@index');
+    Route::resource('expense-posted', 'ExpensePostedController');
 });

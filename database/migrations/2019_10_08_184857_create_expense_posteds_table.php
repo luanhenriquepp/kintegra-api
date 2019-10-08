@@ -25,6 +25,11 @@ class CreateExpensePostedsTable extends Migration
                 ->references('cd_payment_category')
                 ->on('tb_payment_category');
 
+            $table->integer('cd_user')->unsigned();
+            $table->foreign('cd_user', 'cd_user_fk')
+                ->references('cd_user')
+                ->on('tb_user');
+
             $table->string('cd_payment_code', '1');
             $table->foreign('cd_payment_code', 'cd_payment_code_fk')
                 ->references('cd_payment_code')
