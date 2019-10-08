@@ -3,8 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\ExpensePosted;
+use App\Http\Requests\ExpensePostedRequest;
 use App\Service\ExpensePostedService;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class ExpensePostedController extends Controller
 {
@@ -18,67 +24,55 @@ class ExpensePostedController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return LengthAwarePaginator|Response
      */
     public function index()
     {
-        //
+        return $this->service->getAll();
     }
 
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param ExpensePostedRequest $request
+     * @return Response
      */
-    public function store(Request $request)
+    public function store(ExpensePostedRequest $request)
     {
-        //
+        return  $this->service->createExpensePosted($request);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\ExpensePosted  $expensesPosted
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return ExpensePosted[]|Builder[]|Collection
      */
-    public function show(ExpensePosted $expensesPosted)
+    public function show($id)
     {
-        //
+        return $this->service->getById($id);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\ExpensePosted  $expensesPosted
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(ExpensePosted $expensesPosted)
-    {
-        //
-    }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\ExpensePosted  $expensesPosted
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param $id
+     * @return JsonResponse
      */
-    public function update(Request $request, ExpensePosted $expensesPosted)
+    public function update(Request $request, $id)
     {
-        //
+        return  $this->service->terminateExpensePosted($request, $id);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\ExpensePosted  $expensesPosted
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return JsonResponse|Response
      */
-    public function destroy(ExpensePosted $expensesPosted)
+    public function destroy($id)
     {
-        //
+        return $this->service->delete($id);
     }
 }

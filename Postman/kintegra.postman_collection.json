@@ -1,0 +1,415 @@
+{
+	"info": {
+		"_postman_id": "2383e109-f74e-42bc-a14c-57b8f6bc6c50",
+		"name": "kintegra",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "api/login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"admin@admin.com\",\n\t\"password\": \"admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Payment Category",
+			"item": [
+				{
+					"name": "/api/category",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTU3MDU1NTI1MSwiZXhwIjoxNTcwNTU4ODUxLCJuYmYiOjE1NzA1NTUyNTEsImp0aSI6ImcybllEU2Znd2s5NDVDWFgiLCJzdWIiOjEsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJjZF91c2VyIjoxLCJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsIm5hbWUiOiJBZG1pbmlzdHJhdG9yIn0.SVNWXg0umINTbjjfYDub41uOGfaQzlgUS87lk00CoGY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/api/category",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"category"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						},
+						"description": "This method get all categorys."
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "27b1dcc9-7b45-4bec-8714-23e3a24dd359",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "172ef5af-f829-41e7-9104-cec3f5eb3d80",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Payment Code",
+			"item": [
+				{
+					"name": "api/payment-code",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/api/payment-code",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"payment-code"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Payment",
+			"item": [
+				{
+					"name": "api/payment",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/api/payment",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"payment"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Expense Posted",
+			"item": [
+				{
+					"name": "api/expense-posted",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\t\"ds_expense_posted\": \"Saidinha com os amigos\",\n        \"dt_expense_posted\": \"2019-10-08 20:00:23\",\n        \"expense_posted_status\": 1,\n        \"expense_posted_value\": 200.50,\n        \"cd_payment_category\": 5,\n        \"cd_payment\": \"D\",\n        \"cd_payment_code\": \"R\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/expense-posted",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"expense-posted"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/expense-posted",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\t\n        \"expense_posted_status\": 0\n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/expense-posted/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"expense-posted",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/expense-posted",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/api/expense-posted?ds_expense_posted=",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"expense-posted"
+							],
+							"query": [
+								{
+									"key": "ds_expense_posted",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/expense-posted/:id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/api/expense-posted/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"expense-posted",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/expense-posted/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/api/expense-posted/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"expense-posted",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTU3MDU3MDE1NiwiZXhwIjoxNTcwNTczNzU2LCJuYmYiOjE1NzA1NzAxNTYsImp0aSI6IjVPSkVpQmpNWHBQM1BwTTEiLCJzdWIiOjEsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJjZF91c2VyIjoxLCJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsIm5hbWUiOiJBZG1pbmlzdHJhdG9yIn0.vqtMB-Ha4SrAIuYFu__z9pISC5wIFXFlDffIWLtg-kY",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "32f3f8b3-4577-4a4f-920e-5c1c8f0eaaf4",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "9f5f57b4-123b-4570-874d-a6bacb6006f8",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -20,4 +20,8 @@ class PaymentCategory extends Model
         'updated_at'
     ];
 
+    public function expensePosted()
+    {
+        return $this->hasMany(ExpensePosted::class, '', 'ds_payment_category');
+    }
 }

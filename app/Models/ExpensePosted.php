@@ -18,7 +18,8 @@ class ExpensePosted extends Model
         'expense_posted_value',
         'cd_payment_category',
         'cd_payment',
-        'cd_payment_code'
+        'cd_payment_code',
+        'cd_user'
     ];
 
     protected $hidden = [
@@ -39,5 +40,29 @@ class ExpensePosted extends Model
     public function paymentCode()
     {
         return $this->belongsTo(PaymentCode::class,'cd_payment_code', 'cd_payment_code');
+    }
+
+    public function scopeDsExpensePosted($query)
+    {
+        if (!$request = request()->get('ds_expense_posted')) {
+            return null;
+        }
+        return $query->where('ds_expense_posted', 'LIKE', '%' . $request . '%');
+    }
+
+    public function scopeDtExpensePosted($query)
+    {
+        if (!$request = request()->get('dt_expense_posted')) {
+            return null;
+        }
+        return $query->where('dt_expense_posted', 'LIKE', '%' . $request . '%');
+    }
+
+    public function scopeExpensePostedStatus($query)
+    {
+        if (!$request = request()->get('expense_posted_status')) {
+            return null;
+        }
+        return $query->where('expense_posted_status', 'LIKE', '%' . $request . '%');
     }
 }
