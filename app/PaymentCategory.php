@@ -4,15 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ExpenseCategory extends Model
+class PaymentCategory extends Model
 {
 
-    protected $primaryKey = 'cd_expense_category';
+    protected $primaryKey = 'cd_payment_category';
 
-    protected $table = 'tb_expense_category';
+    protected $table = 'tb_payment_category';
 
     protected $fillable = [
-        'ds_expense_category',
+        'ds_payment_category',
     ];
 
     protected $hidden = [

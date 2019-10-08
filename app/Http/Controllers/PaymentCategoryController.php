@@ -2,24 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\ExpenseCategory;
-use App\Service\ExpenseCategoryService;
+use App\PaymentCategory;
+use App\Service\PaymentCategoryService;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-class ExpenseCategoryController extends Controller
+class PaymentCategoryController extends Controller
 {
     protected  $service;
 
-    public function __construct(ExpenseCategoryService $service)
+    public function __construct(PaymentCategoryService $service)
     {
         $this->service = $service;
     }
 
 
     /**
-     * @return ExpenseCategory[]|Collection
+     * @return PaymentCategory[]|Collection
      */
     public function index()
     {

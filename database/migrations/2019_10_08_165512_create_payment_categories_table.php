@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateExpenseCategoriesTable extends Migration
+class CreatepaymentCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateExpenseCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('tb_expense_category', function (Blueprint $table) {
-            $table->increments('cd_expense_category');
-            $table->string('ds_expense_category');
+        Schema::create('tb_payment_category', function (Blueprint $table) {
+            $table->increments('cd_payment_category');
+            $table->string('ds_payment_category');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateExpenseCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_expense_category');
+        Schema::dropIfExists('tb_payment_category');
     }
 }
