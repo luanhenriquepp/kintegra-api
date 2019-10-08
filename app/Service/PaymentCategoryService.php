@@ -2,14 +2,14 @@
 
 namespace App\Service;
 
-use App\ExpenseCategory;
+use App\PaymentCategory;
 
 
-class ExpenseCategoryService
+class PaymentCategoryService
 {
     protected $category;
 
-    public function __construct(ExpenseCategory $category)
+    public function __construct(PaymentCategory $category)
     {
         $this->category = $category;
     }
