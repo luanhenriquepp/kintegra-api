@@ -26,7 +26,7 @@ class UserService
         return response()->json([
             'token' => $token,
             'type' => 'bearer',
-            'expires' => auth('api')->factory()->getTTL() * 60,
+            'expires' => auth('api')->factory()->getTTL() * 600,
 
         ]);
     }
