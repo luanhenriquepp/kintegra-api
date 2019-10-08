@@ -11,6 +11,10 @@ class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
 
+
+    protected $primaryKey = 'cd_user';
+
+    protected $table = 'tb_user';
     /**
      * The attributes that are mass assignable.
      *
@@ -59,7 +63,6 @@ class User extends Authenticatable implements JWTSubject
             'cd_user'           => $this->cd_user,
             'email'             => $this->email,
             'name'              => $this->name,
-
         ];
     }
 }
