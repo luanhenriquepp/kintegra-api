@@ -14,5 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('login', 'APILoginController@login');
+Route::post('login', 'UserController@login');
 
