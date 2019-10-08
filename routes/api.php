@@ -17,5 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('login', 'UserController@login');
 
 Route::group(['middleware' => ['jwt.auth']], function() {
-    Route::get('category', 'PaymentCategoryController@index');
+    Route::get('payment-category', 'PaymentCategoryController@index');
+    Route::get('payment-code', 'PaymentCodeController@index');
+    Route::get('payment', 'PaymentController@index');
 });
