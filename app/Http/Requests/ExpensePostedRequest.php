@@ -26,7 +26,7 @@ class ExpensePostedRequest extends FormRequest
         return [
             'ds_expense_posted' => 'max:255',
             'dt_expense_posted' => 'required',
-            'expense_posted_status' => 'required|in:0,1',
+            'expense_posted_status' => 'in:0,1',
             'expense_posted_value' => 'required',
             'cd_payment_category' => 'required',
             'cd_payment' => 'required|in:C,D',

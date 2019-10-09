@@ -17,7 +17,7 @@ class CreateExpensePostedsTable extends Migration
             $table->increments('cd_expense_posted');
             $table->string('ds_expense_posted');
             $table->date('dt_expense_posted');
-            $table->boolean('expense_posted_status');
+            $table->boolean('expense_posted_status')->default(0)->nullable();
             $table->decimal('expense_posted_value');
 
             $table->integer('cd_payment_category')->unsigned();

@@ -30,7 +30,7 @@ class ExpensePostedService
             'ds_expense_posted'         => $request->get('ds_expense_posted'),
             'dt_expense_posted'         => $request->get('dt_expense_posted'),
             'expense_posted_status'     => $request->get('expense_posted_status'),
-            'expense_posted_value'      => $request->get('expense_posted_value'),
+            'expense_posted_value'      => $request->get('expense_posted_value', 0),
             'cd_payment_category'       => $request->get('cd_payment_category'),
             'cd_payment'                => $request->get('cd_payment'),
             'cd_user'                   => auth()->user()->cd_user,
