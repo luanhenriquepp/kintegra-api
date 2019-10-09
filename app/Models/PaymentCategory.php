@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class PaymentCategory extends Model
 {
@@ -20,6 +21,9 @@ class PaymentCategory extends Model
         'updated_at'
     ];
 
+    /**
+     * @return HasMany
+     */
     public function expensePosted()
     {
         return $this->hasMany(ExpensePosted::class, '', 'ds_payment_category');

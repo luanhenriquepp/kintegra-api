@@ -16,6 +16,10 @@ class ExpensePostedController extends Controller
 {
     protected $service;
 
+    /**
+     * ExpensePostedController constructor.
+     * @param ExpensePostedService $service
+     */
     public function __construct(ExpensePostedService $service)
     {
         $this->service = $service;
@@ -36,7 +40,7 @@ class ExpensePostedController extends Controller
      * Store a newly created resource in storage.
      *
      * @param ExpensePostedRequest $request
-     * @return Response
+     * @return JsonResponse
      */
     public function store(ExpensePostedRequest $request)
     {
@@ -53,7 +57,6 @@ class ExpensePostedController extends Controller
     {
         return $this->service->getById($id);
     }
-
 
     /**
      * @param Request $request

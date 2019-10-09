@@ -12,11 +12,14 @@ class PaymentCategoryController extends Controller
 {
     protected  $service;
 
+    /**
+     * PaymentCategoryController constructor.
+     * @param PaymentCategoryService $service
+     */
     public function __construct(PaymentCategoryService $service)
     {
         $this->service = $service;
     }
-
 
     /**
      * @return PaymentCategory[]|Collection

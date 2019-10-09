@@ -12,16 +12,13 @@ use Illuminate\Http\Response;
 
 class ExpensePostedService
 {
-    protected $expensePosted;
 
-    public function __construct(ExpensePosted $expensePosted)
-    {
-        $this->expensePosted = $expensePosted;
-    }
-
+    /**
+     * @return mixed
+     */
     public function getAll()
     {
-        return $this->expensePosted->with('paymentCategory', 'payment', 'paymentCode')
+        return ExpensePosted::with('paymentCategory', 'payment', 'paymentCode')
             ->where('cd_user', auth()->user()->cd_user)
             ->dsExpensePosted()
             ->dtExpensePosted()
@@ -29,10 +26,14 @@ class ExpensePostedService
             ->paginate();
     }
 
+    /**
+     * @param ExpensePostedRequest $request
+     * @return JsonResponse
+     */
     public function createExpensePosted(ExpensePostedRequest $request)
     {
 
-        $expensePosted = $this->expensePosted->create([
+        $expensePosted = ExpensePosted::create([
             'ds_expense_posted'         => $request->get('ds_expense_posted'),
             'dt_expense_posted'         => $request->get('dt_expense_posted'),
             'expense_posted_status'     => $request->get('expense_posted_status'),
@@ -58,8 +59,7 @@ class ExpensePostedService
      */
     public function getById($id)
     {
-        return $this->expensePosted
-            ->with('paymentCategory', 'payment', 'paymentCode')
+        return ExpensePosted::with('paymentCategory', 'payment', 'paymentCode')
             ->findOrFail($id);
     }
 
@@ -78,11 +78,16 @@ class ExpensePostedService
         ], Response::HTTP_OK);
     }
 
-    public function terminateExpensePosted(Request $request,$id)
+    /**
+     * @param Request $request
+     * @param $id
+     * @return JsonResponse
+     */
+    public function terminateExpensePosted(Request $request, $id)
     {
-        $expensePosted = $this->expensePosted->findOrFail($id);
+        $expensePosted = ExpensePosted::findOrFail($id);
 
-        $expensePosted->expense_posted_status = $request->input('expense_posted_status');
+        $expensePosted->expense_posted_status = $request->only('expense_posted_status');
 
         $expensePosted->update($request->all());
 

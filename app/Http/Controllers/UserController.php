@@ -9,6 +9,10 @@ class UserController extends Controller
 {
     private $service;
 
+    /**
+     * UserController constructor.
+     * @param UserService $service
+     */
     public function __construct(UserService $service)
     {
         $this->service = $service;
