@@ -3,19 +3,15 @@
 namespace App\Service;
 
 use App\PaymentCategory;
-
+use Illuminate\Database\Eloquent\Collection;
 
 class PaymentCategoryService
 {
-    protected $category;
-
-    public function __construct(PaymentCategory $category)
-    {
-        $this->category = $category;
-    }
-
+    /**
+     * @return PaymentCategory[]|Collection
+     */
     public function getAll()
     {
-        return $this->category::all();
+        return PaymentCategory::all();
     }
 }

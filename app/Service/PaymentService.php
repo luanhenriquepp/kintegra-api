@@ -3,18 +3,16 @@
 namespace App\Service;
 
 use App\Payment;
+use Illuminate\Database\Eloquent\Collection;
 
 class PaymentService
 {
-    protected $payment;
 
-    public function __construct(Payment $payment)
-    {
-        $this->payment = $payment;
-    }
-
+    /**
+     * @return Payment[]|Collection
+     */
     public function getAll()
     {
-        return $this->payment::all();
+        return Payment::all();
     }
 }

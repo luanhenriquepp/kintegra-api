@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Payment extends Model
 {
@@ -23,6 +24,9 @@ class Payment extends Model
         'updated_at'
     ];
 
+    /**
+     * @return HasMany
+     */
     public function expensePosted()
     {
         return $this->hasMany(ExpensePosted::class, '', 'cd_payment');

@@ -11,6 +11,10 @@ class PaymentCodeController extends Controller
 {
     protected $service;
 
+    /**
+     * PaymentCodeController constructor.
+     * @param PaymentCodeService $service
+     */
     public function __construct(PaymentCodeService $service)
     {
         $this->service = $service;

@@ -2,19 +2,15 @@
 
 namespace App\Service;
 
-use App\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class UserService
 {
-    protected $user;
-
-    public function __construct(User $user)
-    {
-        $this->user = $user;
-    }
-
-
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     */
     public function login(Request $request) {
 
         $credentials = $request->only('email', 'password');
