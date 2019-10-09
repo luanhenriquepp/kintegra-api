@@ -13,9 +13,6 @@ use Illuminate\Http\Response;
 class ExpensePostedService
 {
 
-    /**
-     * @return mixed
-     */
     public function getAll()
     {
         return ExpensePosted::with('paymentCategory', 'payment', 'paymentCode')
@@ -26,10 +23,6 @@ class ExpensePostedService
             ->paginate();
     }
 
-    /**
-     * @param ExpensePostedRequest $request
-     * @return JsonResponse
-     */
     public function createExpensePosted(ExpensePostedRequest $request)
     {
 
@@ -78,23 +71,18 @@ class ExpensePostedService
         ], Response::HTTP_OK);
     }
 
-    /**
-     * @param Request $request
-     * @param $id
-     * @return JsonResponse
-     */
     public function terminateExpensePosted(Request $request, $id)
     {
         $expensePosted = ExpensePosted::findOrFail($id);
 
-        $expensePosted->expense_posted_status = $request->only('expense_posted_status');
+        $expensePosted->expense_posted_status = $request->input('expense_posted_status');
 
-        $expensePosted->update($request->all());
+        $expensePosted->update($request->only($expensePosted->expense_posted_status));
 
         return response()->json([
             'data' => $expensePosted,
             'success' => true,
             'message' => 'Atualizado com sucesso!'
-        ], Response::HTTP_OK);
+        ], Response::HTTP_ACCEPTED);
     }
 }
